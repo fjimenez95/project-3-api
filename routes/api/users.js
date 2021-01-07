@@ -8,7 +8,7 @@ const router = express.Router();
 const usersCtrl = require('../../controllers/users');
 
 // DEFINE THE SIGNUP ROUTE
-router.post('/signup', usersCtrl);
+router.post('/signup', usersCtrl.signup);
 
 // EXPORT YOUR ROUTER
 module.exports = router;
