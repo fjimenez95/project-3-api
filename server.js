@@ -17,6 +17,7 @@ app.use(require('cors')());
 
 // MOUNT ROUTES
 app.use('/api/users', require('./routes/api/users'));
+app.use('/todos', require('./routes/todos'));
 
 // TELL APP TO LISTEN
 app.listen(port, function() {

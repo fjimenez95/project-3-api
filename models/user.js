@@ -4,6 +4,16 @@ const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
+const todoSchema = new Schema({
+    text: {
+        type: 'String'
+    },
+    status: {
+        type: Boolean,
+        default: false,
+    }
+})
+
 const userSchema = new Schema({
     firstName: {
         type: String,
@@ -20,6 +30,7 @@ const userSchema = new Schema({
     password: {
         type: String,
     },
+    todos: [todoSchema],
 }, { timestamps: true })
 
 userSchema.set('toJSON', {
@@ -39,5 +50,9 @@ userSchema.pre('save', function(next) {
         next();
     }) 
 });
+
+userSchema.methods.comparePassword = function(tryPassword, callback) {
+    bcrypt.compare(tryPassword, this.password, callback)
+}
 
 module.exports = mongoose.model('User', userSchema);

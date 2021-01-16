@@ -5,11 +5,12 @@ const express = require('express');
 const router = express.Router();
 
 // REQUIRE THE CONTROLLER
-const usersCtrl = require('../../controllers/users');
+const todosCtrl = require('../controllers/todos');
 
 // DEFINE THE SIGNUP ROUTE
-router.post('/signup', usersCtrl.signup);
-router.post('/login', usersCtrl.login);
+router.get('/', todosCtrl.index);
+router.post('/create', todosCtrl.create);
+router.get('/:id', todosCtrl.edit);
 
 // EXPORT YOUR ROUTER
 module.exports = router;
