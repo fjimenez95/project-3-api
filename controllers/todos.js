@@ -1,4 +1,5 @@
 const Todo = require('../models/todo');
+const User = require('../models/user');
 
 module.exports = {
     index,
@@ -11,7 +12,7 @@ module.exports = {
 }
 
 function index(req, res) {
-    Todo.find((err, todos) => {
+    User.findOne((err, todos) => {
         if(err) {
             console.log(err);
         } else {
