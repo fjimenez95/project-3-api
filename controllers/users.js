@@ -57,4 +57,3 @@ try {
 function index(req, res) {
     return User.findOne
 }
-  

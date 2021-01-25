@@ -1,5 +1,6 @@
 const express = require('express');
 const logger = require('morgan');
+const methodOverride = require('method-override');
 
 
 const port = process.env.PORT || 3002;
@@ -10,6 +11,7 @@ require('dotenv').config();
 require('./config/database');
 
 // MOUNT MIDDLEWARE
+app.use(methodOverride('_method'));
 app.use(express.json());
 app.use(logger('dev'));
 app.use(require('cors')());

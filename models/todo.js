@@ -5,13 +5,9 @@ const todoSchema = new Schema({
     text: {
         type: 'String'
     },
-    // done: {
-    //     type: Boolean,
-    //     default: false,
-    // },
-    // user: {
-    //     type: Schema.Types.ObjectId
-    // }
+    user: {
+        type: Schema.Types.ObjectId
+    }
 })
 
 
